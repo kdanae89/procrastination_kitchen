@@ -1,11 +1,22 @@
 import React from 'react';
-import Axios from 'axios';
+import spoonacular from '../api/spoonacular';
 import Header from './Header';
 import IngredientsSearch from './IngredientsSearch';
+import RecipeList from './RecipeList';
 
 class App extends React.Component {
-  onSearchSubmit(term) {
-    console.log(term);
+  state = { recipes: [] };
+
+  onSearchSubmit = async (ingredients) => {
+    const response = await spoonacular.get('/recipes/findByIngredients', {
+        params: {
+          "ranking":"2",
+          "ignorePantry":"false",
+          "ingredients":ingredients
+        }
+      });
+
+      this.setState({ recipes: response.data})
   }
 
   render () {
@@ -14,6 +25,9 @@ class App extends React.Component {
         <Header />
         <IngredientsSearch
           onSubmit={this.onSearchSubmit}
+        />
+        <RecipeList
+          recipes={this.state.recipes}
         />
       </div>
     );

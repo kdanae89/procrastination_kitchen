@@ -1,11 +1,11 @@
 import React from 'react';
 
 class IngredientsSearch extends React.Component {
-  state = { term: '' };
+  state = { ingredients: '' };
 
   onFormSubmit = (event) => {
     event.preventDefault();
-    this.props.onSubmit(this.state.term)
+    this.props.onSubmit(this.state.ingredients)
   }
 
   render () {
@@ -25,8 +25,8 @@ class IngredientsSearch extends React.Component {
             <input
               type="text"
               style={{ width: '50%'}}
-              onChange={(e) => this.setState({ term: e.target.value})}
-              value={this.state.term}
+              onChange={(e) => this.setState({ ingredients: e.target.value})}
+              value={this.state.ingredients}
             />
           </div>
         </form>
