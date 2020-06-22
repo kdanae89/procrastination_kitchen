@@ -1,6 +1,6 @@
 import React from 'react';
 import spoonacular from '../api/spoonacular';
-import Header from './Header';
+import Header from './Header/Header';
 import IngredientsSearch from './IngredientsSearch';
 import RecipeList from './RecipeList';
 
@@ -23,12 +23,8 @@ class App extends React.Component {
     return (
       <div className="container">
         <Header />
-        <IngredientsSearch
-          onSubmit={this.onSearchSubmit}
-        />
-        <RecipeList
-          recipes={this.state.recipes}
-        />
+        <IngredientsSearch onSubmit={this.onSearchSubmit} />
+        <RecipeList recipes={this.state.recipes} />
       </div>
     );
   }

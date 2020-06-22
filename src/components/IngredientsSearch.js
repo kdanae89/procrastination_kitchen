@@ -21,7 +21,11 @@ class IngredientsSearch extends React.Component {
               display: "flex",
               justifyContent: "center"
           }}>
-            <label>What's in your pantry?</label>
+            <label style={{
+              marginRight: "1em"
+            }}>
+              What's in your pantry?
+            </label>
             <input
               type="text"
               style={{ width: '50%'}}
