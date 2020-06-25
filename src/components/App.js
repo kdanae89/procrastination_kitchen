@@ -2,10 +2,15 @@ import React from 'react';
 import spoonacular from '../api/spoonacular';
 import Header from './Header/Header';
 import IngredientsSearch from './IngredientsSearch';
-import RecipeList from './RecipeList';
+import RecipeList from './RecipeList/RecipeList';
+import RecipeDetail from './RecipeDetail/RecipeDetail';
+import './App.scss';
 
 class App extends React.Component {
-  state = { recipes: [] };
+  state = {
+    recipes: [],
+    selectedRecipe: null
+  };
 
   onSearchSubmit = async (ingredients) => {
     const response = await spoonacular.get('/recipes/findByIngredients', {
@@ -16,15 +21,30 @@ class App extends React.Component {
         }
       });
 
-      this.setState({ recipes: response.data})
-  }
+      this.setState({ recipes: response.data });
+  };
+
+  onRecipeSelect = (recipe) => {
+    this.setState({ selectedRecipe: recipe });
+  };
 
   render () {
+    const isSideList = this.state.selectedRecipe ? true : false;
+
     return (
       <div className="container">
         <Header />
         <IngredientsSearch onSubmit={this.onSearchSubmit} />
-        <RecipeList recipes={this.state.recipes} />
+        <div className="result-wrapper">
+          {this.state.selectedRecipe && (
+            <RecipeDetail recipe={this.state.selectedRecipe} />
+          )}
+          <RecipeList
+            isSideList={isSideList}
+            onRecipeSelect={this.onRecipeSelect}
+            recipes={this.state.recipes}
+          />
+        </div>
       </div>
     );
   }

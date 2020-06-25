@@ -1,5 +1,13 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
+  background-image: url('../../public/wood_grain.JPG');
+
+  .trans {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.5;
+  }
 }

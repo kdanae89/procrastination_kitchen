@@ -1,12 +1,9 @@
 import React from 'react';
+import './Nav.scss';
 
 const Nav = props => {
   return (
-    <div
-      className="navigation"
-      style={{
-        margin: "auto 1em"
-      }}>
+    <div className="navigation">
       <i className="material-icons">menu</i>
     </div>
   );

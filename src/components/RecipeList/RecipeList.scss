@@ -1,0 +1,15 @@
+.recipe-list {
+  width: 50%;
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style: none;
+  overflow: scroll;
+
+  &.side-list {
+    width: 25%;
+    height: 60vh;
+    padding: 0 2em;
+  }
+}

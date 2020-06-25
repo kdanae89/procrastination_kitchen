@@ -1,11 +1,15 @@
 import React from 'react';
+import './RecipeCard.scss'
 
 class RecipeCard extends React.Component {
   render () {
-    const { title, image, usedIngredientCount, missedIngredientCount } = this.props.recipe;
+    const { title, image, usedIngredientCount, missedIngredientCount, likes, usedIngredients } = this.props.recipe;
 
     return (
-      <div>
+      <div
+        onClick={() => this.props.onRecipeSelect(this.props.recipe)}
+        className="recipe-card"
+      >
         <h2>{title}</h2>
         <img
           alt={title}
