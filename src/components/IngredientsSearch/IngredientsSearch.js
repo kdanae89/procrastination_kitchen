@@ -27,6 +27,7 @@ class IngredientsSearch extends React.Component {
               What's in your pantry?
             </label>
             <input
+              data-testid="search"
               type="text"
               style={{ width: '50%'}}
               onChange={(e) => this.setState({ ingredients: e.target.value})}

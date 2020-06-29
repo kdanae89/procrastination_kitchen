@@ -1,7 +1,7 @@
 import React from 'react';
 import spoonacular from '../api/spoonacular';
 import Header from './Header/Header';
-import IngredientsSearch from './IngredientsSearch';
+import IngredientsSearch from './IngredientsSearch/IngredientsSearch';
 import RecipeList from './RecipeList/RecipeList';
 import RecipeDetail from './RecipeDetail/RecipeDetail';
 import './App.scss';
