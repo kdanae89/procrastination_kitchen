@@ -7,16 +7,16 @@ class RecipeCard extends React.Component {
 
     return (
       <div
-        onClick={() => this.props.onRecipeSelect(this.props.recipe)}
         className="recipe-card"
+        data-testid="recipe-card"
+        onClick={() => this.props.onRecipeSelect(this.props.recipe)}
       >
         <h2>{title}</h2>
         <img
           alt={title}
           src={image}
         />
-        <p>This recipe contains {usedIngredientCount} ingredients you listed
-        and you're missing {missedIngredientCount}.</p>
+        <p data-testid="missing-ingredients">{missedIngredientCount}</p>
       </div>
     )
   }

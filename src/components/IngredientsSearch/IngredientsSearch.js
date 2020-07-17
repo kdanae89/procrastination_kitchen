@@ -1,4 +1,5 @@
 import React from 'react';
+import './IngredientsSearch.scss';
 
 class IngredientsSearch extends React.Component {
   state = { ingredients: '' };
@@ -10,27 +11,20 @@ class IngredientsSearch extends React.Component {
 
   render () {
     return (
-      <div>
+      <div data-testid="search">
         <form
+          className="search-input"
+          data-testid="search-input"
           onSubmit={this.onFormSubmit}
-          style={{ marginTop: "1em" }}
         >
-          <div
-            className="field"
-            style={{
-              display: "flex",
-              justifyContent: "center"
-          }}>
-            <label style={{
-              marginRight: "1em"
-            }}>
+          <div className="field">
+            <label>
               What's in your pantry?
             </label>
             <input
-              data-testid="search"
-              type="text"
-              style={{ width: '50%'}}
+              data-testid="input"
               onChange={(e) => this.setState({ ingredients: e.target.value})}
+              type="text"
               value={this.state.ingredients}
             />
           </div>

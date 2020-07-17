@@ -1,0 +1,16 @@
+.search-input {
+  margin-top: 1em;
+
+  .field {
+    display: flex;
+    justify-content: center;
+
+    label {
+      margin-right: 1em;
+    }
+
+    input {
+      width: 50%;
+    }
+  }
+}

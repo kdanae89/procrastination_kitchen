@@ -7,6 +7,9 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-wait": "^1.0.9",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -35,8 +38,9 @@
         "statements": 90
       }
     },
-    "coverageReporters": ["text"],
-    "snapshotSerializers": ["my-serializer-module"]
+    "coverageReporters": [
+      "text"
+    ]
   },
   "browserslist": {
     "production": [

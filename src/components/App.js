@@ -2,8 +2,8 @@ import React from 'react';
 import spoonacular from '../api/spoonacular';
 import Header from './Header/Header';
 import IngredientsSearch from './IngredientsSearch/IngredientsSearch';
-import RecipeList from './RecipeList/RecipeList';
-import RecipeDetail from './RecipeDetail/RecipeDetail';
+import RecipeList from './Recipe/RecipeList/RecipeList';
+import RecipeDetail from './Recipe/RecipeDetail/RecipeDetail';
 import './App.scss';
 
 class App extends React.Component {
@@ -39,11 +39,13 @@ class App extends React.Component {
           {this.state.selectedRecipe && (
             <RecipeDetail recipe={this.state.selectedRecipe} />
           )}
-          <RecipeList
-            isSideList={isSideList}
-            onRecipeSelect={this.onRecipeSelect}
-            recipes={this.state.recipes}
-          />
+          {this.state.recipes && this.state.recipes.length > 0 && (
+            <RecipeList
+              isSideList={isSideList}
+              onRecipeSelect={this.onRecipeSelect}
+              recipes={this.state.recipes}
+            />
+          )}
         </div>
       </div>
     );

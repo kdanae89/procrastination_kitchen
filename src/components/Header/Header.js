@@ -6,7 +6,10 @@ import './Header.scss';
 
 const Header = props => {
   return (
-    <div className="header">
+    <div
+      className="header"
+      data-testid="header"
+    >
       <div className="trans">
           <Nav />
           <h1 data-testid="title">{APP_TITLE}</h1>
