@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render App 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="header"
+    data-testid="header"
+  >
+    <div
+      className="trans"
+    >
+      <div
+        className="navigation"
+      >
+        <i
+          className="material-icons"
+        >
+          menu
+        </i>
+      </div>
+      <h1
+        data-testid="title"
+      >
+        Procrastination Kitchen
+      </h1>
+      <div
+        className="user-profile"
+      >
+        <i
+          className="material-icons"
+        >
+          account_box
+        </i>
+      </div>
+    </div>
+  </div>
+  <div
+    data-testid="search"
+  >
+    <form
+      className="search-input"
+      data-testid="search-input"
+      onSubmit={[Function]}
+    >
+      <div
+        className="field"
+      >
+        <label>
+          What's in your pantry?
+        </label>
+        <input
+          data-testid="input"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </div>
+    </form>
+  </div>
+  <div
+    className="result-wrapper"
+  />
+</div>
+`;

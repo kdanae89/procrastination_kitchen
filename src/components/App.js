@@ -4,24 +4,21 @@ import Header from './Header/Header';
 import IngredientsSearch from './IngredientsSearch/IngredientsSearch';
 import RecipeList from './Recipe/RecipeList/RecipeList';
 import RecipeDetail from './Recipe/RecipeDetail/RecipeDetail';
+import { connect } from 'react-redux';
+import { fetchRecipes } from '../actions';
 import './App.scss';
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchRecipes();
+  }
+
   state = {
-    recipes: [],
     selectedRecipe: null
   };
 
-  onSearchSubmit = async (ingredients) => {
-    const response = await spoonacular.get('/recipes/findByIngredients', {
-        params: {
-          "ranking":"2",
-          "ignorePantry":"false",
-          "ingredients":ingredients
-        }
-      });
-
-      this.setState({ recipes: response.data });
+  onSearchSubmit = ingredients => {
+    this.props.fetchRecipes(ingredients);
   };
 
   onRecipeSelect = (recipe) => {
@@ -29,6 +26,7 @@ class App extends React.Component {
   };
 
   render () {
+    console.log(this.props.recipes);
     const isSideList = this.state.selectedRecipe ? true : false;
 
     return (
@@ -39,11 +37,11 @@ class App extends React.Component {
           {this.state.selectedRecipe && (
             <RecipeDetail recipe={this.state.selectedRecipe} />
           )}
-          {this.state.recipes && this.state.recipes.length > 0 && (
+          {this.props.recipes && this.props.recipes.length > 0 && (
             <RecipeList
               isSideList={isSideList}
               onRecipeSelect={this.onRecipeSelect}
-              recipes={this.state.recipes}
+              recipes={this.props.recipes}
             />
           )}
         </div>
@@ -52,4 +50,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return { recipes: state.recipes };
+}
+
+export default connect(mapStateToProps, { fetchRecipes })(App);

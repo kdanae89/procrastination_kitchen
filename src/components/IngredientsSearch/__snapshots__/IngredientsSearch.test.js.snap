@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IngredientSearch snapshot renders 1`] = `
+<div
+  data-testid="search"
+>
+  <form
+    className="search-input"
+    data-testid="search-input"
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <label>
+        What's in your pantry?
+      </label>
+      <input
+        data-testid="input"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+  </form>
+</div>
+`;
