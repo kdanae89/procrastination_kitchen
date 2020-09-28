@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should render App 1`] = `
+exports[`Connected App should render should render App 1`] = `
 <div
   className="container"
 >
   <div
     className="header"
-    data-testid="header"
   >
     <div
       className="trans"
@@ -21,7 +20,7 @@ exports[`App should render App 1`] = `
         </i>
       </div>
       <h1
-        data-testid="title"
+        className="title"
       >
         Procrastination Kitchen
       </h1>

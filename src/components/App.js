@@ -10,7 +10,7 @@ import './App.scss';
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchRecipes();
+    // this.props.fetchRecipes();
   }
 
   state = {
@@ -26,7 +26,7 @@ class App extends React.Component {
   };
 
   render () {
-    console.log(this.props.recipes);
+    // console.log(this.props.recipes);
     const isSideList = this.state.selectedRecipe ? true : false;
 
     return (

@@ -8,11 +8,10 @@ const Header = props => {
   return (
     <div
       className="header"
-      data-testid="header"
     >
       <div className="trans">
           <Nav />
-          <h1 data-testid="title">{APP_TITLE}</h1>
+          <h1 className="title">{APP_TITLE}</h1>
           <Profile />
         </div>
     </div>

@@ -1,15 +1,12 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import IngredientsSearch from './IngredientsSearch';
-
-//jest --updateSnapshot if ever the component changes
 
 //unit
 
 describe('IngredientSearch', () => {
-  it('snapshot renders', () => {
-    const IngredientSearchComponent = renderer.create(<IngredientsSearch/>);
-    expect(IngredientSearchComponent).toMatchSnapshot();
-  });
+  it('should not have an initial value', () => {
+
+  })
 });
