@@ -1,10 +1,20 @@
 import React from 'react';
 import RecipeCard from './RecipeCard/RecipeCard';
+import { connect } from 'react-redux';
+import { fetchRecipeInfo } from '../../../actions';
 import './RecipeList.scss';
 
 class RecipeList extends React.Component {
+  onRecipeSelect = (recipe) => {
+    this.props.fetchRecipeInfo(recipe.id);
+  };
+
   render () {
     const sidelist = this.props.isSideList ? 'side-list' : '';
+
+    console.log(this.props.recipes);
+    console.log(this.props.selectedRecipe);
+
 
     return (
       <ul
@@ -16,7 +26,7 @@ class RecipeList extends React.Component {
           {this.props.recipes.map((recipe, index) => (
             <li key={index}>
               <RecipeCard
-                onRecipeSelect={this.props.onRecipeSelect}
+                onRecipeSelect={this.onRecipeSelect}
                 recipe={recipe} />
             </li>
           ))}
@@ -30,4 +40,10 @@ class RecipeList extends React.Component {
   }
 }
 
-export default RecipeList;
+const mapStateToProps = state => {
+  return {
+    selectedRecipe: state.selectedRecipe
+  }
+}
+
+export default connect(mapStateToProps, { fetchRecipeInfo })(RecipeList);

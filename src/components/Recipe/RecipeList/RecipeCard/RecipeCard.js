@@ -16,7 +16,13 @@ class RecipeCard extends React.Component {
           alt={title}
           src={image}
         />
-        <p data-testid="missing-ingredients">{missedIngredientCount}</p>
+        <ul className='ingredient-list'>
+          {this.props.recipe.usedIngredients.map((ingredient, index) => (
+            <li key={index}>
+              {ingredient.originalString}
+            </li>
+          ))}
+        </ul>
       </div>
     )
   }

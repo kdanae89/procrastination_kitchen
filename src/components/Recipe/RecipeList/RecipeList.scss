@@ -1,15 +1,16 @@
 .recipe-list {
-  width: 50%;
+  width: 100%;
   height: inherit;
+  margin-top: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   list-style: none;
   overflow: scroll;
 
   &.side-list {
     width: 25%;
-    height: 60vh;
+    height: 80vh;
     padding: 0 2em;
   }
 }

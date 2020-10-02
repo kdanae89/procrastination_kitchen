@@ -5,43 +5,32 @@ import IngredientsSearch from './IngredientsSearch/IngredientsSearch';
 import RecipeList from './Recipe/RecipeList/RecipeList';
 import RecipeDetail from './Recipe/RecipeDetail/RecipeDetail';
 import { connect } from 'react-redux';
-import { fetchRecipes } from '../actions';
+import { fetchRecipes, fetchRecipeInfo } from '../actions';
 import './App.scss';
 
 class App extends React.Component {
-  componentDidMount() {
-    // this.props.fetchRecipes();
-  }
-
-  state = {
-    selectedRecipe: null
-  };
 
   onSearchSubmit = ingredients => {
     this.props.fetchRecipes(ingredients);
   };
 
-  onRecipeSelect = (recipe) => {
-    this.setState({ selectedRecipe: recipe });
-  };
-
   render () {
-    // console.log(this.props.recipes);
-    const isSideList = this.state.selectedRecipe ? true : false;
+    //only show recipes without missing ingredients
+    const recipes = this.props.recipes.filter(recipe => recipe.missedIngredientCount === 0);
 
     return (
       <div className="container">
         <Header />
         <IngredientsSearch onSubmit={this.onSearchSubmit} />
         <div className="result-wrapper">
-          {this.state.selectedRecipe && (
-            <RecipeDetail recipe={this.state.selectedRecipe} />
+          {this.props.selectedRecipe && (
+            <RecipeDetail
+              recipe={this.props.selectedRecipe}
+             />
           )}
-          {this.props.recipes && this.props.recipes.length > 0 && (
+          {recipes && recipes.length > 0 && (
             <RecipeList
-              isSideList={isSideList}
-              onRecipeSelect={this.onRecipeSelect}
-              recipes={this.props.recipes}
+              recipes={recipes}
             />
           )}
         </div>
@@ -51,7 +40,10 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { recipes: state.recipes };
+  return {
+    recipes: state.recipes,
+    selectedRecipe: state.selectedRecipe
+   };
 }
 
 export default connect(mapStateToProps, { fetchRecipes })(App);
