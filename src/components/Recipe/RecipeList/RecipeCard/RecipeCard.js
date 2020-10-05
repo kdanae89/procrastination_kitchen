@@ -3,6 +3,7 @@ import './RecipeCard.scss'
 
 class RecipeCard extends React.Component {
   render () {
+    console.log(this.props);
     const { title, image, usedIngredientCount, missedIngredientCount, likes, usedIngredients } = this.props.recipe;
 
     return (

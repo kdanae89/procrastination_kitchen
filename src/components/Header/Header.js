@@ -7,7 +7,7 @@ import './Header.scss';
 const Header = props => {
   return (
     <div
-      className="header"
+      className="page-header"
     >
       <div className="trans">
           <Nav />
