@@ -1,5 +1,6 @@
 
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const InitMongoServer = require('./config/db');
@@ -11,7 +12,19 @@ InitMongoServer();
 const app = express();
 const path = require('path');
 
+const whiteList = process.env.LOCAL_URI;
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whiteList.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
 app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(cors(corsOptions));
 app.use(express.static('public'));
 app.use(bodyParser.json());
 

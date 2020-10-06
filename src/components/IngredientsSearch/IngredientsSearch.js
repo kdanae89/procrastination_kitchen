@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+
 import './IngredientsSearch.scss';
 
 class IngredientsSearch extends React.Component {
@@ -14,7 +16,7 @@ class IngredientsSearch extends React.Component {
       <div data-testid="search">
         <form
           className="search-input"
-          data-testid="search-input"
+          id="search-input"
           onSubmit={this.onFormSubmit}
         >
           <div className="field">
@@ -27,6 +29,9 @@ class IngredientsSearch extends React.Component {
               type="text"
               value={this.state.ingredients}
             />
+            <Button form='signup-form' type='submit' color="primary">
+              Submit
+            </Button>
           </div>
         </form>
       </div>

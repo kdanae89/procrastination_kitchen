@@ -1,16 +1,21 @@
 .search-input {
-  margin-top: 1em;
+  margin-top: 2em;
 
   .field {
     display: flex;
     justify-content: center;
 
     label {
-      margin-right: 1em;
+      // margin-right: 1em;
+      margin: auto 1em;;
     }
 
     input {
       width: 50%;
+    }
+
+    button {
+      margin: 0 1em;
     }
   }
 }

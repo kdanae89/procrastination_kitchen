@@ -19,6 +19,7 @@ router.post(
     })
   ],
   async(req, res) => {
+    console.log(req.body);
     const errors = validationResult(req);
     const salt = await bcrypt.genSalt(10);
     const {

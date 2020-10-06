@@ -10,11 +10,7 @@ class RecipeList extends React.Component {
   };
 
   render () {
-    const sidelist = this.props.isSideList ? 'side-list' : '';
-
-    console.log(this.props.recipes);
-    console.log(this.props.selectedRecipe);
-
+    const sidelist = this.props.selectedRecipe ? 'side-list' : '';
 
     return (
       <ul

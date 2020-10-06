@@ -13,7 +13,7 @@ class RecipeDetail extends React.Component {
             alt={title}
             src={image}
           />
-          <p>{summary}</p>
+          <p>{instructions}</p>
         </div>
       </div>
     )

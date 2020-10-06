@@ -14,16 +14,28 @@ class UserDialog extends React.Component {
       <Dialog
         open={this.props.open}
         onClose={this.props.onClose}
+        onSubmit={this.props.onSubmit}
+        login={this.props.isLogin}
       >
         <DialogTitle id="user-dialog-title">Signup/Login</DialogTitle>
-        <DialogContentText>
-          To subscribe and enjoy easily navigating back to your favorite recipes, create an account here.
-        </DialogContentText>
-        <form className="signup-form" autoComplete="off">
-          <TextField label="Username" variant="outlined" required/>
-          <TextField label="Email" variant="outlined" type="email" required/>
-          <TextField label="Password" variant="outlined" type="password" required/>
-        </form>
+        <DialogContent>
+          <DialogContentText>
+            To subscribe and enjoy easily navigating back to your favorite recipes, create an account here.
+          </DialogContentText>
+          <form id="signup-form" onSubmit={this.onSubmit} autoComplete="off">
+            <TextField label="Username" onChange={this.props.onChangeHandler} name="username" variant="outlined" required/>
+            <TextField label="Email" onChange={this.props.onChangeHandler} name="email" variant="outlined" type="email" required/>
+            <TextField label="Password" onChange={this.props.onChangeHandler} name="password" variant="outlined" type="password" required/>
+          </form>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={this.props.onClose} color="primary">
+            Cancel
+          </Button>
+          <Button form='signup-form' type='submit' color="primary">
+            Sign Up
+          </Button>
+        </DialogActions>
       </Dialog>
     )
   }
